@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "924134094189",
+    "project_id": "fb-login-test-38352",
+    "storage_bucket": "fb-login-test-38352.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924134094189:android:018c90d931946c0ba41664",
+        "android_client_info": {
+          "package_name": "com.shinyelee.fb_login_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924134094189-lvk6ob4iulst655bpt84rj5vcfenepo5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfLiG9n68chsrPCYKzDx3SBokqbciVyeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924134094189-lvk6ob4iulst655bpt84rj5vcfenepo5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
