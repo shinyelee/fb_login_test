@@ -42,5 +42,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
         }
+        val logoutBtn = findViewById<Button>(R.id.logoutBtn)
+        logoutBtn.setOnClickListener {
+            Firebase.auth.signOut()
+            Toast.makeText(this, "logout", Toast.LENGTH_LONG).show()
+        }
     }
 }
