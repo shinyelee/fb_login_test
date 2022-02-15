@@ -42,7 +42,29 @@ class MainActivity : AppCompatActivity() {
                 }
 
         }
-        val logoutBtn = findViewById<Button>(R.id.logoutBtn)
+
+        // 로그인
+        val loginBtn = findViewById<Button>(R.id.loginBtn)
+        loginBtn.setOnClickListener {
+
+            val email = findViewById<EditText>(R.id.emailArea)
+            val password = findViewById<EditText>(R.id.passwordArea)
+
+            auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Toast.makeText(this, "success", Toast.LENGTH_LONG).show()
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(this, "fail", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+        }
+
+        // 로그아웃
+       val logoutBtn = findViewById<Button>(R.id.logoutBtn)
         logoutBtn.setOnClickListener {
             Firebase.auth.signOut()
             Toast.makeText(this, "logout", Toast.LENGTH_LONG).show()
