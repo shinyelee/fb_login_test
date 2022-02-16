@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.datepicker.DateSelector
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -29,15 +30,19 @@ class MainActivity : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.mainLV)
 
-        val adapter = ListViewAdapter(dataModelList)
+        val adapter_list = ListViewAdapter(dataModelList)
 
-        myRef.addValueEventListener(object : ValueEventListener {
+        listView.adapter = adapter_list
+
+        myRef.child(Firebase.auth.currentUser!!.uid).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                dataModelList.clear()
 
                 for (dataModel in snapshot.children) {
                     Log.d("Data", dataModel.toString())
                     dataModelList.add(dataModel.getValue(DataModel::class.java)!!)
                 }
+                adapter_list.notifyDataSetChanged()
                 Log.d("DataModel", dataModelList.toString())
             }
 
@@ -90,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 val healthMemo = mAlertDialog.findViewById<EditText>(R.id.healthMemo)?.text.toString()
 
                 val database = Firebase.database
-                val myRef = database.getReference("myMemo")
+                val myRef = database.getReference("myMemo").child(Firebase.auth.currentUser!!.uid)
 
                 val model = DataModel(dateText, healthMemo)
 
