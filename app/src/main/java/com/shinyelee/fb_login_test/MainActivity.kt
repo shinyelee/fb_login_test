@@ -10,6 +10,8 @@ import android.widget.DatePicker
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.datepicker.DateSelector
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +52,16 @@ class MainActivity : AppCompatActivity() {
                     }
                 }, year, month, date)
                 dlg.show()
+            }
+
+            val saveBtn = mAlertDialog.findViewById<Button>(R.id.saveBtn)
+            saveBtn?.setOnClickListener {
+
+                // Write a message to the database
+                val database = Firebase.database
+                val myRef = database.getReference("message")
+
+                myRef.setValue("Hello, World!")
             }
         }
     }
