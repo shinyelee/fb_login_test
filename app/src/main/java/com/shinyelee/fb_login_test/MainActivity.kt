@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.datepicker.DateSelector
@@ -33,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
             val DateSelectBtn = mAlertDialog.findViewById<Button>(R.id.dateSelectBtn)
 
+            var dateText = ""
+
             DateSelectBtn?.setOnClickListener {
 
                 val today = GregorianCalendar()
@@ -49,6 +52,8 @@ class MainActivity : AppCompatActivity() {
                     ) {
                         Log.d("MAIN", "${year}, ${month+1}, ${dayOfMonth}")
                         DateSelectBtn.setText("${year}, ${month+1}, ${dayOfMonth}")
+
+                        dateText = "${year}, ${month+1}, ${dayOfMonth}"
                     }
                 }, year, month, date)
                 dlg.show()
@@ -57,11 +62,16 @@ class MainActivity : AppCompatActivity() {
             val saveBtn = mAlertDialog.findViewById<Button>(R.id.saveBtn)
             saveBtn?.setOnClickListener {
 
-                // Write a message to the database
-                val database = Firebase.database
-                val myRef = database.getReference("message")
+                val healthMemo = mAlertDialog.findViewById<EditText>(R.id.healthMemo)?.text.toString()
 
-                myRef.setValue("Hello, World!")
+                val database = Firebase.database
+                val myRef = database.getReference("myMemo")
+
+                val model = DataModel(dateText, healthMemo)
+
+                myRef
+                    .push()
+                    .setValue(model)
             }
         }
     }
