@@ -5,22 +5,47 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.ImageView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.datepicker.DateSelector
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    val dataModelList = mutableListOf<DataModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val database = Firebase.database
+        val myRef = database.getReference("myMemo")
+
+        val listView = findViewById<ListView>(R.id.mainLV)
+
+        val adapter = ListViewAdapter(dataModelList)
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                for (dataModel in snapshot.children) {
+                    Log.d("Data", dataModel.toString())
+                    dataModelList.add(dataModel.getValue(DataModel::class.java)!!)
+                }
+                Log.d("DataModel", dataModelList.toString())
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
         val writeButton = findViewById<ImageView>(R.id.writeBtn)
         writeButton.setOnClickListener {
@@ -72,6 +97,8 @@ class MainActivity : AppCompatActivity() {
                 myRef
                     .push()
                     .setValue(model)
+
+                mAlertDialog.dismiss()
             }
         }
     }
