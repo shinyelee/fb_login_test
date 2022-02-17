@@ -1,8 +1,8 @@
 package com.shinyelee.fb_login_test
 
-class ContentsModel (
+data class ContentsModel (
 
     val url : String = "",
-    val titleImageUrl : String = "",
+    val ImageUrl : String = "",
     val titleText : String = ""
 )
