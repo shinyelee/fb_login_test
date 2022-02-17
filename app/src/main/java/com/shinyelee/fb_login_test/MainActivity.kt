@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val recyclerview = findViewById<RecyclerView>(R.id.rv)
-        val rvAdapter = RVAdapter(items)
+        val rvAdapter = RVAdapter(baseContext, items)
         recyclerview.adapter = rvAdapter
 
         recyclerview.layoutManager = GridLayoutManager(this, 2)
