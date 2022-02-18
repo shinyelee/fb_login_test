@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="220dp"
+    android:layout_margin="10dp"
     android:background="@drawable/radius"
     android:orientation="vertical">
 
@@ -11,13 +12,18 @@
         android:src="@drawable/ic_launcher_background"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_height="100dp"/>
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:scaleType="fitXY"
+        android:layout_height="120dp"/>
 
     <TextView
         android:id="@+id/rvTextArea"
         android:text="text"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>

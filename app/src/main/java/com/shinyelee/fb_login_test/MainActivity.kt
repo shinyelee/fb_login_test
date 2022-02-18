@@ -24,9 +24,23 @@ class MainActivity : AppCompatActivity() {
         )
         items.add(
             ContentsModel(
-                "https://www.mangoplate.com/restaurants/lNGf0ef7vT",
-                "https://mp-seoul-image-production-s3.mangoplate.com/495395_1631411614563619.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
-                "비비비당"
+                "https://www.mangoplate.com/restaurants/TXkjVTA_MXiL",
+                "https://mp-seoul-image-production-s3.mangoplate.com/978259_1609066259920123.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+                "톤쇼우"
+            )
+        )
+        items.add(
+            ContentsModel(
+                "https://www.mangoplate.com/restaurants/eLq_Q72bscee",
+                "https://mp-seoul-image-production-s3.mangoplate.com/1129699_1620482534399327.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+                "해목"
+            )
+        )
+        items.add(
+            ContentsModel(
+                "https://www.mangoplate.com/restaurants/s3HTCj99t-",
+                "https://mp-seoul-image-production-s3.mangoplate.com/577068_1506913302368580.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+                "신발원"
             )
         )
         items.add(
@@ -38,9 +52,23 @@ class MainActivity : AppCompatActivity() {
         )
         items.add(
             ContentsModel(
-                "https://www.mangoplate.com/restaurants/lNGf0ef7vT",
-                "https://mp-seoul-image-production-s3.mangoplate.com/495395_1631411614563619.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
-                "비비비당"
+                "https://www.mangoplate.com/restaurants/TXkjVTA_MXiL",
+                "https://mp-seoul-image-production-s3.mangoplate.com/978259_1609066259920123.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+                "톤쇼우"
+            )
+        )
+        items.add(
+            ContentsModel(
+                "https://www.mangoplate.com/restaurants/eLq_Q72bscee",
+                "https://mp-seoul-image-production-s3.mangoplate.com/1129699_1620482534399327.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+                "해목"
+            )
+        )
+        items.add(
+            ContentsModel(
+                "https://www.mangoplate.com/restaurants/s3HTCj99t-",
+                "https://mp-seoul-image-production-s3.mangoplate.com/577068_1506913302368580.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+                "신발원"
             )
         )
 
