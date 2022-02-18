@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(view: View, position: Int) {
 
                 val intent = Intent(baseContext, ViewActivity::class.java)
+                intent.putExtra("url", items[position].url)
                 startActivity(intent)
             }
         }

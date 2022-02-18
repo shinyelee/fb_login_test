@@ -10,6 +10,6 @@ class ViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_view)
 
         val webView = findViewById<WebView>(R.id.webView)
-        webView.loadUrl("https://www.mangoplate.com/restaurants/yNGGQSGw7x")
+        webView.loadUrl(intent.getStringExtra("url").toString())
     }
 }
