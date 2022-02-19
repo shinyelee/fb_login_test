@@ -3,6 +3,7 @@ package com.shinyelee.fb_login_test
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -25,12 +26,14 @@ class BookmarkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bookmark)
 
+        val recyclerview = findViewById<RecyclerView>(R.id.rv)
+        val rvAdapter = RVAdapter(this, contentModels)
+        recyclerview.adapter = rvAdapter
+
+        recyclerview.layoutManager = GridLayoutManager(this, 2)
+
         val database = Firebase.database
         val myBookmarkRef = database.getReference("bookmark_ref")
-
-        val recyclerview = findViewById<RecyclerView>(R.id.rv)
-        val rvAdapter = RVAdapter(baseContext, contentModels)
-        recyclerview.adapter = rvAdapter
 
         myBookmarkRef
             .child(auth.currentUser?.uid.toString())
@@ -43,6 +46,7 @@ class BookmarkActivity : AppCompatActivity() {
                         contentModels.add(dataModel.getValue(ContentsModel::class.java)!!)
 
                     }
+                    rvAdapter.notifyDataSetChanged()
 
                 }
 
@@ -51,5 +55,6 @@ class BookmarkActivity : AppCompatActivity() {
                 }
 
             })
+
     }
 }
