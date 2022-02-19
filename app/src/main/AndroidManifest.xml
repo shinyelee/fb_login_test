@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fb_login_test">
         <activity
+            android:name=".BookmarkActivity"
+            android:exported="true" />
+        <activity
             android:name=".JoinActivity"
             android:exported="true" />
         <activity
