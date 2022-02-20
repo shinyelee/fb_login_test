@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +23,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/wedding"/>
+        android:background="@drawable/wedding"/>
+    <!-- 이미지를 냅다 붙여넣으면 자동으로 drawable-v24 폴더로 들어감 -> 아래와 같은 에러 발생
+
+         android.view.InflateException:
+         Binary XML file line #숫자:
+         Error inflating class ImageView
+
+         귀찮아도 경로 찾아서 drawable 폴더에 넣어줘야 에러가 안 뜸 -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,13 +44,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-    android:id="@+id/startBtn"
-    android:text="시작일"
-    android:layout_margin="20dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent" />
+        android:id="@+id/startBtn"
+        android:text="시작일"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/endBtn"
