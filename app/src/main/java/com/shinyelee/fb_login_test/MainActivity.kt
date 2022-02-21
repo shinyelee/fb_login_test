@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         var startDate = ""
         var endDate = ""
+
+        val calendar_start = Calendar.getInstance()
+        val calendar_end = Calendar.getInstance()
 
         startButton.setOnClickListener {
 
@@ -33,6 +37,8 @@ class MainActivity : AppCompatActivity() {
                     startDate = "${year}"+"${month+1}"+"${dayOfMonth}"
 //                  startDate = year.toString() + month+1.toString() + dayOfMonth.toString()과 동일
                     Log.d("day : ", startDate)
+
+                    calendar_start.set(year, month+1, dayOfMonth)
                 }
 
             }, year, month, day)
@@ -52,9 +58,13 @@ class MainActivity : AppCompatActivity() {
                     endDate = "${year}"+"${month+1}"+"${dayOfMonth}"
                     Log.d("day : ", endDate)
 
+                    calendar_end.set(year, month+1, dayOfMonth)
+
+                    val finalDate = TimeUnit.MILLISECONDS.toDays(calendar_end.timeInMillis - calendar_start.timeInMillis)
+
                     val textArea = findViewById<TextView>(R.id.finalDate)
 
-                    textArea.setText((endDate.toInt() - startDate.toInt()).toString())
+                    textArea.setText(finalDate.toString())
                 }
 
             }, year, month, day)
