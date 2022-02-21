@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.TextView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             val dlg = DatePickerDialog(this, object : DatePickerDialog.OnDateSetListener {
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
 
-                    startDate = "${year} + ${month+1} + ${dayOfMonth}"
+                    startDate = "${year}"+"${month+1}"+"${dayOfMonth}"
 //                  startDate = year.toString() + month+1.toString() + dayOfMonth.toString()과 동일
                     Log.d("day : ", startDate)
                 }
@@ -48,9 +49,12 @@ class MainActivity : AppCompatActivity() {
             val dlg = DatePickerDialog(this, object : DatePickerDialog.OnDateSetListener {
                 override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
 
-                    endDate = "${year} + ${month+1} + ${dayOfMonth}"
-//                  startDate = year.toString() + month+1.toString() + dayOfMonth.toString()과 동일
+                    endDate = "${year}"+"${month+1}"+"${dayOfMonth}"
                     Log.d("day : ", endDate)
+
+                    val textArea = findViewById<TextView>(R.id.finalDate)
+
+                    textArea.setText((endDate.toInt() - startDate.toInt()).toString())
                 }
 
             }, year, month, day)
