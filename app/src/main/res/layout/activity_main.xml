@@ -49,6 +49,7 @@
 
     <Button
         android:id="@+id/startBtn"
+        android:fontFamily="@font/leeseoyun"
         android:text="시작일"
         android:textColor="@color/white"
         android:background="@color/black"
@@ -60,6 +61,7 @@
 
     <Button
         android:id="@+id/endBtn"
+        android:fontFamily="@font/leeseoyun"
         android:text="종료일"
         android:textColor="@color/white"
         android:background="@color/black"
