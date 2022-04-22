@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Fb_login_test" parent="Theme.AppCompat.Light">
+        <!-- font style. -->
+        <item name="android:fontFamily">@font/leeseoyun</item>
         <!-- Primary brand color. -->
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/purple_500</item>

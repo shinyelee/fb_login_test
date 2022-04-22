@@ -1,7 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Fb_login_test" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- font style. -->
+        <item name="android:fontFamily">@font/leeseoyun</item>
         <!-- Primary brand color. -->
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
