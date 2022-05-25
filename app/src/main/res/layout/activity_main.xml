@@ -9,4 +9,9 @@
     tools:context=".MainActivity"
     android:background="#d8d8d8">
 
+    <Button
+        android:text="test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
